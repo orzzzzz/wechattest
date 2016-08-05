@@ -1,0 +1,16 @@
+E:\ideaworkspace\wechattest\src\main\java\com\icinfo\common\model\AccessToken.java
+E:\ideaworkspace\wechattest\src\main\java\com\icinfo\common\message\resp\BaseMessage.java
+E:\ideaworkspace\wechattest\src\main\java\com\icinfo\common\util\MessageUtil.java
+E:\ideaworkspace\wechattest\src\main\java\com\icinfo\common\constant\Constants.java
+E:\ideaworkspace\wechattest\src\main\java\com\icinfo\common\model\JsApiTicket.java
+E:\ideaworkspace\wechattest\src\main\java\com\icinfo\common\servlet\CoreServlet.java
+E:\ideaworkspace\wechattest\src\main\java\com\icinfo\common\util\ServletContextUtil.java
+E:\ideaworkspace\wechattest\src\main\java\com\icinfo\common\message\resp\Image.java
+E:\ideaworkspace\wechattest\src\main\java\com\icinfo\common\util\AccessTokenUtil.java
+E:\ideaworkspace\wechattest\src\main\java\com\icinfo\common\model\ReceiveXmlEntity.java
+E:\ideaworkspace\wechattest\src\main\java\com\icinfo\common\listener\JobForWXAccessTokenListener.java
+E:\ideaworkspace\wechattest\src\main\java\com\icinfo\common\message\resp\ImageMessage.java
+E:\ideaworkspace\wechattest\src\main\java\com\icinfo\common\util\SignUtil.java
+E:\ideaworkspace\wechattest\src\main\java\com\icinfo\common\service\CoreService.java
+E:\ideaworkspace\wechattest\src\main\java\com\icinfo\common\message\resp\TextMessage.java
+E:\ideaworkspace\wechattest\src\main\java\com\icinfo\system\controller\coreController.java

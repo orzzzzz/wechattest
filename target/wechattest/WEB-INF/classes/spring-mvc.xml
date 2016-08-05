@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <!--spring可以自动去扫描base-pack下面或者子包下面的java文件，
+    如果扫描到有@Component @Controller@Service等这些注解的类，则把这些类注册为bean-->
+    <context:component-scan base-package="com.icinfo.system.controller">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+
+    <mvc:annotation-driven />
+    <mvc:default-servlet-handler/>
+
+    <!-- 视图解析器 -->
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:order="1">
+        <!-- 使用JSP页面进行输出 -->
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <!-- 这个配置是配置JSP页面的位置 -->
+        <property name="contentType" value="text/html" />
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <!-- 指定了表示层的后缀 -->
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <!--处理 @ResponseBody 中文乱码问题-->
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                    <property name="supportedMediaTypes">
+                        <list>
+                            <value>
+                                text/html;charset=UTF-8
+                            </value>
+                        </list>
+                    </property>
+                </bean>
+                <!-- 启动JSON格式的配置 -->
+                <bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                    <!-- 解决 HttpMediaTypeNotAcceptableException: Could not find acceptable representation -->
+                    <property name="supportedMediaTypes">
+                        <list>
+                            <value>application/json;charset=UTF-8</value>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <!--&lt;!&ndash; 开启cglib代理切面 &ndash;&gt;-->
+    <!--<aop:aspectj-autoproxy proxy-target-class="true" />-->
+
+</beans>
